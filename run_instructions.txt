@@ -1,0 +1,11 @@
+1. Open a terminal and navigate to the project directory:
+   cd "d:\EPWQ assessment\appointment-system"
+
+2. Activate the virtual environment:
+   .\venv\Scripts\activate
+
+3. Run the Flask backend server:
+   python app.py
+
+4. Open your web browser and go to:
+   http://127.0.0.1:5000

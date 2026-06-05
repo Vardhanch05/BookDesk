@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BookDesk - Premium Appointment System</title>
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div class="app-container">
+		<div class="doctor-view active" id="doctor-view" style="display: flex;">
+			<aside class="sidebar active" id="sidebar">
+				<div class="logo">
+					<i class="fas fa-heartbeat"></i>
+					<span>BookDesk</span>
+				</div>
+
+				<nav class="nav-menu">
+					<a class="nav-item active" data-view="dashboard">
+						<i class="fas fa-tachometer-alt"></i>
+						<span>Dashboard</span>
+					</a>
+				</nav>
+			</aside>
+
+			<main class="main-content">
+				<header class="header">
+					<div class="date-info">
+						<h1 id="view-title">Dashboard</h1>
+						<p id="current-date">Today</p>
+					</div>
+					
+					<div class="header-actions">
+						<button class="btn-icon" id="notifications-btn" title="Notifications">
+							<i class="fas fa-bell"></i>
+						</button>
+					</div>
+				</header>
+
+				<div class="view-container active" id="dashboard-view">
+					<div class="dashboard-grid">
+						<div class="left-column">
+							<div class="current-patient-card">
+								<div class="card-header">
+									<h2>Book an Appointment</h2>
+								</div>
+
+								<div class="medical-notes" id="appointment-form">
+									<div class="input-group">
+										<label for="customerName"><i class="fas fa-user"></i> Customer Name</label>
+										<input type="text" id="customerName" placeholder="John Doe">
+									</div>
+
+									<div class="input-group">
+										<label for="phoneNumber"><i class="fas fa-phone"></i> Phone Number <span class="note" style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Incl. country code, e.g., +1)</span></label>
+										<input type="text" id="phoneNumber" placeholder="+1234567890">
+									</div>
+
+									<div class="input-group">
+										<label for="appointmentTime"><i class="fas fa-calendar-alt"></i> Appointment Time</label>
+										<input type="datetime-local" id="appointmentTime">
+									</div>
+
+									<div id="formMessage" class="message hidden" style="margin-top: 10px; padding: 10px; border-radius: 5px; font-weight: 500; font-size: 0.9rem;"></div>
+								</div>
+
+								<div class="action-buttons" style="justify-content: flex-start;">
+									<button class="btn btn-primary" id="submitBtn">
+										<i class="fas fa-check-circle"></i>
+										<span class="btn-text">Confirm Appointment</span>
+										<span class="loader hidden" style="margin-left: 8px;"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="right-column">
+							<div class="queue-card">
+								<div class="queue-header">
+									<h3><i class="fas fa-list-ol"></i> Upcoming Appointments</h3>
+									<div class="queue-count" id="queue-count">Loading...</div>
+								</div>
+
+								<div class="queue-list" id="appointments-list">
+									<!-- Dynamic appointments will be injected here -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

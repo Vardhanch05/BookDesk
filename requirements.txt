@@ -1,0 +1,6 @@
+flask
+supabase>=2.0.0
+twilio
+python-dotenv
+apscheduler
+gunicorn
